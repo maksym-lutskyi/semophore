@@ -3,6 +3,11 @@
   hosts: dev
 
   tasks:
+  - name: Create directory structure
+    ansible.windows.win_file:
+      path: C:\Temp
+      state: directory
+      
   - name: Copy a single file
     ansible.windows.win_copy:
       src: /mnt/c/Users/maksym.lutskyi/Downloads/DD_agent.ps1
