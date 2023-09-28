@@ -1,2 +1,9 @@
-- name: Run PowerShell Script
-  win_command: hostname.exe
+---
+- name: Set User
+  hosts: dev
+  gather_facts: false
+  become: false
+
+  tasks:
+  - name: Run PowerShell Script
+    win_command: hostname.exe
