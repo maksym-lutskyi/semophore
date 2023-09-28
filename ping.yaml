@@ -1,0 +1,9 @@
+---
+- name: Set User
+  hosts: dev
+  gather_facts: false
+  become: false
+
+  tasks:
+  - name: Example from an Ansible Playbook
+    ansible.builtin.ping:
