@@ -1,6 +1,6 @@
 ---
 - name: Set User
-  hosts: all
+  hosts: dev
   gather_facts: false
   become: false
 
