@@ -1,0 +1,14 @@
+---
+- name: Run script
+
+  tasks:
+  - name: Copy a single file
+    ansible.windows.win_copy:
+      src: /mnt/c/Users/maksym.lutskyi/Downloads/DD_agent.ps1
+      dest: C:\Temp\DD_agent.ps1
+
+  - name: Run PowerShell Script
+    win_command: powershell.exe -ExecutionPolicy ByPass -File  C:\Temp\DD_agent.ps1
+    register: out
+
+  - debug: var=out.stdout_lines
