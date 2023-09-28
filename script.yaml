@@ -1,5 +1,6 @@
 ---
 - name: Run script
+  hosts: dev
 
   tasks:
   - name: Copy a single file
