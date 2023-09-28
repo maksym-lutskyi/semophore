@@ -10,7 +10,7 @@
       
   - name: Copy a single file
     ansible.windows.win_copy:
-      src: /tmp/share/DD_agent.ps1
+      src: /share/DD_agent.ps1
       dest: C:\Temp\DD_agent.ps1
 
   - name: Run PowerShell Script
