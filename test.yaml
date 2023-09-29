@@ -7,3 +7,5 @@
   tasks:
   - name: Run PowerShell Script
     win_command: hostname.exe
+  - name: Run PowerShell Script
+    win_command: dir
