@@ -5,6 +5,8 @@
   become: false
 
   tasks:
+  - delegate_to: localhost
+    command: ls -lia
   - name: Run PowerShell Script
     win_command: hostname.exe
   - name: Run a command under a non-Powershell interpreter (cmd in this case)
@@ -13,4 +15,4 @@
       echo %cd%
     args:
       executable: cmd
-    register: homedir_out
+
