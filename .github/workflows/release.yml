@@ -23,8 +23,7 @@ jobs:
       - name: retrieve_ecr_creds
         run: |
           export DOCKER_PASS=$(aws ecr get-login-password --region us-east-1)
-          echo "::set-output name=docker_pass::${DOCKER_PASS}"
-          echo $DOCKER_PASS
+          echo "docker_pass=$DOCKER_PASS" >> "$GITHUB_OUTPUT" 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
