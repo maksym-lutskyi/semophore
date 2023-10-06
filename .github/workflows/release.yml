@@ -1,6 +1,7 @@
 name: C++ Build and Version Bump
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - closed
