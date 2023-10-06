@@ -37,7 +37,6 @@ jobs:
       image: 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
       credentials:
         username: AWS
-        # Here is the password retrieved as a secret that is set by the `login` job
         password: ${{ needs.login.outputs.docker_pass }}
     steps:
       - run: echo "Inside a container pulled from ECR \o/"
