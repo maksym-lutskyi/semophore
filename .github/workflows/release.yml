@@ -40,12 +40,16 @@ jobs:
     #    username: AWS
     #    password: ${{needs.login.outputs.docker_pass}}
     steps:
+      - name: Cache Docker images.
+        uses: ScribeMD/docker-cache@0.3.6
+        with:
+          key: docker-${{ runner.os }}-vs_2010_env
       - name: Docker login
         run: docker login --username AWS -p ${{needs.login.outputs.docker_pass}} 455322276374.dkr.ecr.us-east-1.amazonaws.com
       - name: Docker run
-        shell: pwsh
+        shell: bash
         run: |
           docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 
-          docker exec -ti vs_2010 pwd && dir
+          winpty docker exec -ti vs_2010 pwd && dir
         
   
