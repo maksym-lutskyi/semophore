@@ -34,15 +34,11 @@ jobs:
   test:
     needs: login
     runs-on: ubuntu-latest
+    container:
+      image: 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
+      credentials:
+        username: AWS
+        password: ${{needs.login.outputs.docker_pass}}
     steps:
-      - env:
-          OUTPUT1: ${{needs.login.outputs.docker_pass}}
-        run: echo "$OUTPUT1" && env
-    #container:
-    #  image: 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
-    #  credentials:
-    #    username: AWS
-    #    password: ${{needs.login.outputs.docker_pass}}
-    #steps:
-    #  - run: echo "Inside a container pulled from ECR \o/"
+      - run: echo "Inside a container pulled from ECR \o/"
   
