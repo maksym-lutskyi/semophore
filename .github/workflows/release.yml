@@ -34,11 +34,15 @@ jobs:
   test:
     needs: login
     runs-on: windows-latest
-    container:
-      image: 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
-      credentials:
-        username: AWS
-        password: ${{needs.login.outputs.docker_pass}}
+    #container:
+    #  image: 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
+    #  credentials:
+    #    username: AWS
+    #    password: ${{needs.login.outputs.docker_pass}}
     steps:
-      - run: echo "Inside a container pulled from ECR \o/"
+      - name: Docker login
+        run: docker login --username AWS -p ${{needs.login.outputs.docker_pass}} 455322276374.dkr.ecr.us-east-1.amazonaws.com
+      - name: Docker pull
+        run: docker pull 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
+        
   
