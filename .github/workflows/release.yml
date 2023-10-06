@@ -43,8 +43,9 @@ jobs:
       - name: Docker login
         run: docker login --username AWS -p ${{needs.login.outputs.docker_pass}} 455322276374.dkr.ecr.us-east-1.amazonaws.com
       - name: Docker run
+        shell: cmd
         run: |
           docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 
-          winpty docker exec -ti vs_2010 pwd && dir
+          docker exec -ti vs_2010 pwd && dir
         
   
