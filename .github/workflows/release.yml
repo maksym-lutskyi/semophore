@@ -49,7 +49,9 @@ jobs:
       - name: Docker run
         shell: bash
         run: |
-          docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 
-          winpty docker exec -ti vs_2010 pwd && dir
+          Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP' -Recurse | Get-ItemProperty -Name version -EA 0 | Where { $_.PSChildName -Match '^(?!S)\p{L}'} | Select PSChildName, version
+          docker pull vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
+          #docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 
+          #winpty docker exec -ti vs_2010 pwd && dir
         
   
