@@ -45,6 +45,6 @@ jobs:
       - name: Docker run
         run: |
           docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 
-          docker exec -ti vs_2010 pwd && dir
+          winpty docker exec -ti vs_2010 pwd && dir
         
   
