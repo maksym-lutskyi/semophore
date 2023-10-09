@@ -45,6 +45,6 @@ jobs:
       - name: Docker run
         shell: pwsh
         run: |
-          docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 pwd
+          docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 powershell.exe -Command hostname
         
   
