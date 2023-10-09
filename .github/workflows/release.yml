@@ -33,7 +33,7 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
   test:
     needs: login
-    runs-on: windows-16
+    runs-on: windows-2016
     #container:
     #  image: 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
     #  credentials:
