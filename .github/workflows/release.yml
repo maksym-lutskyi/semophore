@@ -45,7 +45,6 @@ jobs:
       - name: Docker run
         shell: pwsh
         run: |
-          (docker manifest inspect 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 -v | ConvertFrom-Json).Descriptor.platform."os.version"
-          docker run -dit 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1 powershell.exe -Command hostname
+          docker run -dit --name vs_2010 455322276374.dkr.ecr.us-east-1.amazonaws.com/vs_2010_env:v1
         
   
